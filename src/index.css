@@ -1,0 +1,145 @@
+/* Define los colores y estilos principales de toda la página */
+:root {
+  --text: #6b6375; /* Color del texto normal */
+  --text-h: #08060d; /* Color de los títulos */
+  --bg: #fff; /* Color de fondo */
+  --border: #e5e4e7; /* Color de los bordes */
+  --code-bg: #f4f3ec; /* Fondo de los bloques de código */
+  --accent: #aa3bff; /* Color principal de los detalles */
+  --accent-bg: rgba(170, 59, 255, 0.1); /* Fondo con transparencia */
+  --accent-border: rgba(170, 59, 255, 0.5); /* Borde con transparencia */
+  --social-bg: rgba(244, 243, 236, 0.5); /* Fondo de elementos sociales */
+
+  /* Define la sombra que se utiliza en algunos elementos */
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /* Define los tipos de letras que utilizará la página */
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  /* Define el tamaño, altura de línea y tipo de letra general */
+  font: 18px/145% var(--sans);
+
+  /* Espacio entre las letras */
+  letter-spacing: 0.18px;
+
+  /* Permite utilizar los modos claro y oscuro */
+  color-scheme: light dark;
+
+  /* Establece el color del texto y del fondo */
+  color: var(--text);
+  background: var(--bg);
+
+  /* Evita que el navegador genere estilos adicionales en las letras */
+  font-synthesis: none;
+
+  /* Mejora la forma en que se muestran los textos */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Cambia el tamaño de letra cuando la pantalla es más pequeña */
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* Configura los colores cuando el dispositivo utiliza modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af; /* Color del texto */
+    --text-h: #f3f4f6; /* Color de los títulos */
+    --bg: #16171d; /* Fondo oscuro */
+    --border: #2e303a; /* Color de los bordes */
+    --code-bg: #1f2028; /* Fondo de los bloques de código */
+    --accent: #c084fc; /* Color principal */
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+
+    /* Define las sombras para el modo oscuro */
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  /* Cambia el color de los iconos sociales en modo oscuro */
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+/* Quita el margen que viene por defecto en el cuerpo de la página */
+body {
+  margin: 0;
+}
+
+/* Configura el contenedor principal de React */
+#root {
+  width: 1126px; /* Ancho del contenedor */
+  max-width: 100%; /* Evita que supere el ancho de la pantalla */
+  margin: 0 auto; /* Centra el contenido */
+  text-align: center; /* Centra los textos */
+  border-inline: 1px solid var(--border); /* Agrega bordes laterales */
+  min-height: 100svh; /* Ocupa como mínimo toda la altura de la pantalla */
+  display: flex; /* Activa el diseño flexible */
+  flex-direction: column; /* Organiza los elementos verticalmente */
+  box-sizing: border-box; /* Incluye bordes y espacios en el tamaño */
+}
+
+/* Estilos generales para los títulos h1 y h2 */
+h1,
+h2 {
+  font-family: var(--heading); /* Tipo de letra de los títulos */
+  font-weight: 500; /* Grosor de la letra */
+  color: var(--text-h); /* Color de los títulos */
+}
+
+/* Estilos específicos para el título principal */
+h1 {
+  font-size: 56px; /* Tamaño de la letra */
+  letter-spacing: -1.68px; /* Espacio entre letras */
+  margin: 32px 0; /* Espacio exterior */
+
+  /* Reduce el tamaño del título en pantallas pequeñas */
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+
+/* Estilos para los subtítulos */
+h2 {
+  font-size: 24px; /* Tamaño de la letra */
+  line-height: 118%; /* Altura de línea */
+  letter-spacing: -0.24px; /* Espacio entre letras */
+  margin: 0 0 8px; /* Espacio exterior */
+
+  /* Reduce el tamaño en pantallas pequeñas */
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+/* Quita los márgenes de los párrafos */
+p {
+  margin: 0;
+}
+
+/* Configura los estilos para los códigos y contadores */
+code,
+.counter {
+  font-family: var(--mono); /* Utiliza letra de tipo monoespaciada */
+  display: inline-flex; /* Permite organizar su contenido */
+  border-radius: 4px; /* Redondea las esquinas */
+  color: var(--text-h); /* Cambia el color del texto */
+}
+
+/* Estilos específicos para los bloques de código */
+code {
+  font-size: 15px; /* Tamaño de letra */
+  line-height: 135%; /* Altura de línea */
+  padding: 4px 8px; /* Espacio interno */
+  background: var(--code-bg); /* Color de fondo */
+}
